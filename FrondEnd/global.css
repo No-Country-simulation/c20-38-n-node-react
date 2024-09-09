@@ -1,0 +1,21 @@
+/* globals.css */
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  
+  h1 {
+    color: #333;
+  }
+  /* globals.css */
+.hidden {
+  display: none;
+}
+
+.sm\:flex {
+  display: flex;
+}
+
+.gap-4 {
+  gap: 1rem; /* Ajusta el valor según tu configuración */
+}

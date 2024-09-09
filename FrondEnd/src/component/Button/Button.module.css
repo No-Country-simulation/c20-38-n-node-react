@@ -1,0 +1,10 @@
+.ButtonPrimary{
+    position: absolute;
+    width: 11.875rem;
+    height: 2.5rem;
+    background: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 10px;
+    cursor: pointer;
+  }

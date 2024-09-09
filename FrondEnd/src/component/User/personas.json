@@ -1,0 +1,182 @@
+[
+    {
+        "edad": 25,
+        "sexo": "FEMENINO",
+        "foto": "https://img.freepik.com/foto-gratis/retrato-hermoso-mujer-joven-posicion-pared-gris_231208-10760.jpg",
+        "nombre": "María Pérez",
+        "nacionalidad": "Mexicana",
+        "favorito": true,
+        "estado": "Activo"
+    },
+    {
+        "edad": 30,
+        "sexo": "MASCULINO",
+        "foto": "https://randomuser.me/api/portraits/men/1.jpg",
+        "nombre": "Juan García",
+        "nacionalidad": "Española",
+        "favorito": false,
+        "estado": "Inactivo"
+    },
+    {
+        "edad": 28,
+        "sexo": "FEMENINO",
+        "foto": "https://randomuser.me/api/portraits/women/2.jpg",
+        "nombre": "Ana López",
+        "nacionalidad": "Argentina",
+        "favorito": true,
+        "estado": "Activo"
+    },
+    {
+        "edad": 35,
+        "sexo": "MASCULINO",
+        "foto": "https://randomuser.me/api/portraits/men/2.jpg",
+        "nombre": "Carlos Martínez",
+        "nacionalidad": "Chilena",
+        "favorito": false,
+        "estado": "Inactivo"
+    },
+    {
+        "edad": 22,
+        "sexo": "FEMENINO",
+        "foto": "https://randomuser.me/api/portraits/women/3.jpg",
+        "nombre": "Lucía Fernández",
+        "nacionalidad": "Colombiana",
+        "favorito": true,
+        "estado": "Activo"
+    },
+    {
+        "edad": 27,
+        "sexo": "MASCULINO",
+        "foto": "https://randomuser.me/api/portraits/men/3.jpg",
+        "nombre": "Pedro González",
+        "nacionalidad": "Venezolana",
+        "favorito": false,
+        "estado": "Activo"
+    },
+    {
+        "edad": 24,
+        "sexo": "FEMENINO",
+        "foto": "https://randomuser.me/api/portraits/women/4.jpg",
+        "nombre": "Sofía Ramírez",
+        "nacionalidad": "Uruguaya",
+        "favorito": true,
+        "estado": "Inactivo"
+    },
+    {
+        "edad": 32,
+        "sexo": "MASCULINO",
+        "foto": "https://randomuser.me/api/portraits/men/4.jpg",
+        "nombre": "Diego Sánchez",
+        "nacionalidad": "Peruana",
+        "favorito": false,
+        "estado": "Activo"
+    },
+    {
+        "edad": 29,
+        "sexo": "FEMENINO",
+        "foto": "https://randomuser.me/api/portraits/women/5.jpg",
+        "nombre": "Isabella Torres",
+        "nacionalidad": "Paraguaya",
+        "favorito": true,
+        "estado": "Activo"
+    },
+    {
+        "edad": 34,
+        "sexo": "MASCULINO",
+        "foto": "https://randomuser.me/api/portraits/men/5.jpg",
+        "nombre": "Miguel Díaz",
+        "nacionalidad": "Cubana",
+        "favorito": false,
+        "estado": "Inactivo"
+    },
+    {
+        "edad": 26,
+        "sexo": "FEMENINO",
+        "foto": "https://randomuser.me/api/portraits/women/6.jpg",
+        "nombre": "Camila Reyes",
+        "nacionalidad": "Ecuatoriana",
+        "favorito": true,
+        "estado": "Activo"
+    },
+    {
+        "edad": 31,
+        "sexo": "MASCULINO",
+        "foto": "https://randomuser.me/api/portraits/men/6.jpg",
+        "nombre": "José Herrera",
+        "nacionalidad": "Boliviana",
+        "favorito": false,
+        "estado": "Activo"
+    },
+    {
+        "edad": 23,
+        "sexo": "FEMENINO",
+        "foto": "https://randomuser.me/api/portraits/women/7.jpg",
+        "nombre": "Elena Ríos",
+        "nacionalidad": "Panameña",
+        "favorito": true,
+        "estado": "Inactivo"
+    },
+    {
+        "edad": 36,
+        "sexo": "MASCULINO",
+        "foto": "https://randomuser.me/api/portraits/men/7.jpg",
+        "nombre": "Luis Castillo",
+        "nacionalidad": "Costarricense",
+        "favorito": false,
+        "estado": "Activo"
+    },
+    {
+        "edad": 28,
+        "sexo": "FEMENINO",
+        "foto": "https://randomuser.me/api/portraits/women/8.jpg",
+        "nombre": "Valentina Morales",
+        "nacionalidad": "Hondureña",
+        "favorito": true,
+        "estado": "Activo"
+    },
+    {
+        "edad": 33,
+        "sexo": "MASCULINO",
+        "foto": "https://randomuser.me/api/portraits/men/8.jpg",
+        "nombre": "Andrés Vargas",
+        "nacionalidad": "Salvadoreña",
+        "favorito": false,
+        "estado": "Inactivo"
+    },
+    {
+        "edad": 30,
+        "sexo": "FEMENINO",
+        "foto": "https://randomuser.me/api/portraits/women/9.jpg",
+        "nombre": "Gabriela Jiménez",
+        "nacionalidad": "Guatemalteca",
+        "favorito": true,
+        "estado": "Activo"
+    },
+    {
+        "edad": 35,
+        "sexo": "MASCULINO",
+        "foto": "https://randomuser.me/api/portraits/men/9.jpg",
+        "nombre": "Francisco Silva",
+        "nacionalidad": "Nicaragüense",
+        "favorito": false,
+        "estado": "Activo"
+    },
+    {
+        "edad": 24,
+        "sexo": "FEMENINO",
+        "foto": "https://randomuser.me/api/portraits/women/10.jpg",
+        "nombre": "Marta Peña",
+        "nacionalidad": "Dominicana",
+        "favorito": true,
+        "estado": "Inactivo"
+    },
+    {
+        "edad": 27,
+        "sexo": "MASCULINO",
+        "foto": "https://randomuser.me/api/portraits/men/10.jpg",
+        "nombre": "Ricardo Núñez",
+        "nacionalidad": "Puertorriqueña",
+        "favorito": false,
+        "estado": "Activo"
+    }
+]
