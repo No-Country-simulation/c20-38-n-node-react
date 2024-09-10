@@ -1,3 +1,4 @@
+'use client'
 import Navbar from "../../component/Navbar/Navbar.jsx";
 import Login from "../../component/Login/Login.jsx"
 import Paso1 from "../../component/Perfil/Paso1.jsx"

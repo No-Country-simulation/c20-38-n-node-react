@@ -15,6 +15,7 @@ export default function App() {
                 {personas.map((persona, index) => (
                     <User key={index} persona={persona} />
                 ))}
+                
             </div>
         </div>
     );
