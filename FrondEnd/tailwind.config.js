@@ -27,6 +27,7 @@ module.exports = {
         'custom-gray': '#fafafa', // Nombre del color personalizado
         'Buttom-primary': '#FF6B6B',
         'background-footer': 'rgba(255, 107, 107, 0.10)',
+        'background-footer-2':'rgba(36, 36, 36, 0.32)',
       },
     },
   },
