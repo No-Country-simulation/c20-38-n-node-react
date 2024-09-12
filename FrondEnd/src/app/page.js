@@ -6,11 +6,9 @@ import Footer from "../component/Footer/Footer.jsx"
 export default function Page() { // Cambia el nombre de la función exportada
   return (
     <main className="bg-white">
-      <Navbar />
       <div className="flex justify-center items-center">
       <HomeComponent />
       </div>
-      <Footer/>
     </main>
   );
 }

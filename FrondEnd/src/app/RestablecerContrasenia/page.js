@@ -6,7 +6,6 @@ import RestablecerContrasenia from "../../component/Restablecer/RestablecerContr
 export default function Page() { // Cambia el nombre de la función exportada
   return (
     <main className="bg-white">
-      <Navbar />
       <div className="flex justify-center items-center">
       <RestablecerContrasenia/>
       </div>

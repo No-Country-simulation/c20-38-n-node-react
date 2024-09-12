@@ -6,7 +6,7 @@ import Button from '../Button/Button.jsx'
 import { useRouter } from 'next/navigation';
 
 
-export default function App() {
+export default function App({setstepForLogin}) {
 
     return (
         <div>
@@ -20,24 +20,33 @@ export default function App() {
                     <h2 className=" text-3xl font-bold mb-4">¿Qué nivel consideras que tienes?</h2>
                     <a className="mb-20 text-xl ">Por favor, escoger una opción</a>
 
-                    <div className="flex flex-col space-y-7 ">
+                    <div className="flex flex-col space-y-7">
                         <div className="flex flex-row items-center justify-between w-[460px]">
-                            <a href="#" className="">Soy principiante</a>
-                            <input type="checkbox" />
+                            <label className="flex items-center">
+                                <input type="radio" name="level" value="beginner" />
+                                <span className="ml-2">Soy principiante</span>
+                            </label>
                         </div>
                         <div className="flex flex-row items-center justify-between w-[460px]">
-                            <a href="#" className="">Conozco lo básico, entiendo algo</a>
-                            <input type="checkbox" />
+                            <label className="flex items-center">
+                                <input type="radio" name="level" value="basic" />
+                                <span className="ml-2">Conozco lo básico, entiendo algo</span>
+                            </label>
                         </div>
                         <div className="flex flex-row items-center justify-between w-[460px]">
-                            <a href="#" className="">Nivel avanzado, puedo conversar</a>
-                            <input type="checkbox" />
+                            <label className="flex items-center">
+                                <input type="radio" name="level" value="advanced" />
+                                <span className="ml-2">Nivel avanzado, puedo conversar</span>
+                            </label>
                         </div>
                         <div className="flex flex-row items-center justify-between w-[460px]">
-                            <a href="#" className="">Aún no lo sé</a>
-                            <input type="checkbox" />
+                            <label className="flex items-center">
+                                <input type="radio" name="level" value="unknown" />
+                                <span className="ml-2">Aún no lo sé</span>
+                            </label>
                         </div>
                     </div>
+
                     <div className="mt-20">
 
                         <Button
@@ -48,6 +57,7 @@ export default function App() {
                             width='464px'
                             height='56px'
                             className="mt-4" // Añade un margen superior si es necesario 
+                            onClick={()=>{setstepForLogin(2)}}
                         />
 
                     </div>

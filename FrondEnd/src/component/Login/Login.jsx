@@ -1,5 +1,6 @@
-"use client"; // Asegúrate de que esta línea esté en la parte superior del archivo
-import React, { useState } from "react";
+"use client"; 
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation"; 
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@nextui-org/react";
 import Button from '../Button/Button.jsx';
 
@@ -7,13 +8,11 @@ export default function App() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-
-  console.log(email);
-  console.log(password);
+  const router = useRouter(); 
 
   const handleLogin = async (event) => {
     event.preventDefault();
-    setError(''); // Limpiar cualquier error previo
+    setError(''); 
 
     try {
       const response = await fetch("https://inative-back.onrender.com/loginUser", {
@@ -27,12 +26,9 @@ export default function App() {
       const data = await response.json();
 
       if (response.ok) {
-        // Guardar el token en localStorage si la autenticación es exitosa
         localStorage.setItem("token", data.token);
-        alert("Inicio de sesión exitoso");
-        // Redireccionar o realizar alguna acción adicional aquí
+        router.push('/Perfil');
       } else {
-        // Manejar errores si la respuesta no es exitosa
         setError(data.message || "Error al iniciar sesión");
       }
     } catch (err) {

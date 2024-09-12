@@ -30,6 +30,7 @@ export default function App() {
                 <NavbarItem>
                 </NavbarItem>
                 <NavbarItem>
+                    
                     <ButtonSecondary text='Iniciar sesión' left='10rem' top='88%' type='submit' width='153px' height='56px' borderColor='#FF6B6B' onClick={handleClick} />
 
                 </NavbarItem>

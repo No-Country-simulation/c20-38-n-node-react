@@ -12,7 +12,7 @@ export default function App() {
     const router = useRouter();
 
     const handleClick = () => {
-        router.push('/Login'); // Redirige a la página de login
+        router.push('/Users'); 
     };
 
     return (
@@ -49,14 +49,14 @@ export default function App() {
 
                         <div>
                             <Button
-                                onClick={handleClick}
                                 text='Continuar'
                                 left='0' // Alinea el botón en el centro horizontalmente
                                 top='auto' // Ajusta el top según sea necesario
                                 type='submit'
                                 width='464px'
                                 height='56px'
-                                className="mt-4" // Añade un margen superior si es necesario 
+                                className="mt-4" 
+                                onClick={handleClick}
                             />
 
                         </div>
