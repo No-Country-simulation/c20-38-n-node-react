@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Users from '../User/personas.json';
 
 export default function App() {
-  const [selectedUser, setSelectedUser] = useState(undefined); 
+  const [selectedUser, setSelectedUser] = useState(undefined);
   const [messages, setMessages] = useState([
     { text: "Hola, ¿cómo estás?", author: "usuario 2" },
     { text: "Hola, estoy bien, gracias. ¿Y tú?", author: "usuario 1" },
@@ -13,7 +13,7 @@ export default function App() {
   const [newMessage, setNewMessage] = useState(""); // Estado para el nuevo mensaje
 
   const handleUserClick = (user) => {
-    setSelectedUser(user); 
+    setSelectedUser(user);
   };
 
   const handleSendMessage = () => {
@@ -26,18 +26,18 @@ export default function App() {
 
   return (
     <div className="flex justify-center mt-28">
-   
-      <div className="flex flex-col bg-white border border-gray-300 rounded-lg p-4 w-[383px] max-h-max mb-28">
+
+      <div className="flex flex-col bg-white border border-gray-300 rounded-lg p-4 w-[383px] max-h-[710px] mb-28">
         <div className="bg-slate-500 text-white p-2 mb-4 rounded-t-lg">
           <h2>Historial</h2>
         </div>
 
-        <div className="flex flex-col space-y-2">
+        <div className="flex flex-col space-y-2 max-h-[700px] overflow-y-auto">
           {Users.map((user, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="flex items-center space-x-4 cursor-pointer"
-              onClick={() => handleUserClick(user)} 
+              onClick={() => handleUserClick(user)}
             >
               <img
                 src={user.foto}
@@ -86,9 +86,8 @@ export default function App() {
                 className={`flex ${message.author === 'usuario 1' ? 'justify-end' : 'justify-start'}`}
               >
                 <div
-                  className={`max-w-[70%] mb-5 p-3 rounded-lg ${
-                    message.author === 'usuario 1' ? 'bg-background-chat text-white' : ' text-black'
-                  }`}
+                  className={`max-w-[70%] mb-5 p-3 rounded-lg ${message.author === 'usuario 1' ? 'bg-background-chat text-white' : ' text-black'
+                    }`}
                 >
                   {message.text}
                 </div>
