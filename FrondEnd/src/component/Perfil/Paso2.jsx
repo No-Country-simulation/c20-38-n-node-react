@@ -6,10 +6,13 @@ import Button from '../Button/Button.jsx'
 import { useRouter } from 'next/navigation';
 
 
-export default function App({setstepForLogin}) {
+export default function App({setstepForLogin, formData, setFormData}) {
 
     const router = useRouter();
 
+    const handleAgeChange = (e) => {
+        setFormData({ ...formData, ageRange: e.target.value });
+      };
 
     return (
         <div>
@@ -26,25 +29,25 @@ export default function App({setstepForLogin}) {
                     <div className="flex flex-col space-y-7">
                         <div className="flex flex-row items-center justify-between w-[460px]">
                             <label className="flex items-center">
-                                <input type="radio" name="age" value="18-25" />
+                                <input type="radio" name="age" value="18-25" onChange={handleAgeChange} />
                                 <span className="ml-2">De 18-25</span>
                             </label>
                         </div>
                         <div className="flex flex-row items-center justify-between w-[460px]">
                             <label className="flex items-center">
-                                <input type="radio" name="age" value="25-35" />
+                                <input type="radio" name="age" value="26-35" onChange={handleAgeChange} />
                                 <span className="ml-2">De 25-35</span>
                             </label>
                         </div>
                         <div className="flex flex-row items-center justify-between w-[460px]">
                             <label className="flex items-center">
-                                <input type="radio" name="age" value="35-45" />
+                                <input type="radio" name="age" value="36-45" onChange={handleAgeChange}/>
                                 <span className="ml-2">De 35-45</span>
                             </label>
                         </div>
                         <div className="flex flex-row items-center justify-between w-[460px]">
                             <label className="flex items-center">
-                                <input type="radio" name="age" value="45+" />
+                                <input type="radio" name="age" value="46-60" onChange={handleAgeChange} />
                                 <span className="ml-2">Más de 45</span>
                             </label>
                         </div>

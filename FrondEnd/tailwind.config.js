@@ -28,6 +28,8 @@ module.exports = {
         'Buttom-primary': '#FF6B6B',
         'background-footer': 'rgba(255, 107, 107, 0.10)',
         'background-footer-2':'rgba(36, 36, 36, 0.32)',
+        'background-chat': '#4ECDC4',
+        'background-enviar': '#1A535C',
       },
     },
   },
