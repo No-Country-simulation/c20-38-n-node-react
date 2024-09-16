@@ -1,37 +1,100 @@
-"use client"
-import React, { useState } from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 import Users from '../User/personas.json';
+import io from "socket.io-client";
+import { useUser } from '../../hooks/useUser';
 
 export default function App() {
   const [selectedUser, setSelectedUser] = useState(undefined);
-  const [messages, setMessages] = useState([
-    { text: "Hola, ¿cómo estás?", author: "usuario 2" },
-    { text: "Hola, estoy bien, gracias. ¿Y tú?", author: "usuario 1" },
-    { text: "Yo también estoy bien. ¿Qué has hecho hoy?", author: "usuario 2" },
-    { text: "He trabajado en algunos proyectos. ¿Y tú?", author: "usuario 1" },
-  ]);
-  const [newMessage, setNewMessage] = useState(""); // Estado para el nuevo mensaje
+  const { userData } = useUser();
+  const [token, setToken] = useState(null);
+  const [socket, setSocket] = useState(null);
+  const [chatsData, setChatsData] = useState([]);
+  const [messages, setMessages] = useState([]);
+  const [id_chat, setIdChat] = useState("");
+  const [messageText, setMessageText] = useState("");
+
+  const url = "https://inative-back.onrender.com";
+
+  // Obtener el token del localStorage solo en el lado del cliente
+  useEffect(() => {
+    const storedToken = localStorage.getItem("token");
+    setToken(storedToken);
+  }, []);
 
   const handleUserClick = (user) => {
     setSelectedUser(user);
   };
 
-  const handleSendMessage = () => {
-    if (newMessage.trim() === "") return; // No enviar mensajes vacíos
+  useEffect(() => {
+    if (token) {
+      const newSocket = io(url, {
+        transports: ["websocket"],
+        auth: { token: token },
+      });
 
-    // Agregar el nuevo mensaje al estado de mensajes
-    setMessages([...messages, { text: newMessage, author: 'usuario 1' }]);
-    setNewMessage(""); // Limpiar el campo de entrada
+      setSocket(newSocket);
+
+      return () => {
+        if (newSocket) {
+          newSocket.disconnect();
+        }
+      };
+    }
+  }, [token]);
+
+  useEffect(() => {
+    (async () => {
+      await fetch(`${url}/getChatsByUserId/1`)
+        .then((response) => response.json())
+        .then((result) => {
+          console.log("Respuesta de la API de chats:", result); // Ver la respuesta en la consola
+          setChatsData(result); // Actualiza el estado con los datos de la API
+        })
+        .catch((error) => console.error("Error al obtener los chats:", error));
+    })();
+  }, []);
+
+  useEffect(() => {
+    if (socket) {
+      socket.on("message", (newMessage) => {
+        console.log("Nuevo mensaje recibido:", newMessage);
+        setMessages((prevMessages) => [...prevMessages, newMessage]);
+        console.log("Hola");
+      });
+
+      return () => {
+        socket.off("message");
+      };
+    }
+  }, [socket]);
+
+  const ingresarAlChat = async (id_chat) => {
+    setIdChat(id_chat);
+    if (socket) {
+      socket.emit("joinChat", { id_chat });
+      setMessages([]);
+    }
+  };
+
+  const sendMessage = (event) => {
+    event.preventDefault();
+    if (messageText.trim() !== "" && socket) {
+      socket.emit("message", {
+        id_chat: id_chat,
+        message: messageText,  // Enviar el texto del mensaje
+      });
+      // Limpiar el campo de texto después de enviar el mensaje
+      setMessageText("");
+    }
   };
 
   return (
     <div className="flex justify-center mt-28">
-
       <div className="flex flex-col bg-white border border-gray-300 rounded-lg p-4 w-[383px] max-h-[710px] mb-28">
         <div className="bg-slate-500 text-white p-2 mb-4 rounded-t-lg">
           <h2>Historial</h2>
         </div>
-
         <div className="flex flex-col space-y-2 max-h-[700px] overflow-y-auto">
           {Users.map((user, index) => (
             <div
@@ -78,37 +141,43 @@ export default function App() {
           )}
         </div>
 
-        <div className="bg-white border border-gray-300 rounded-lg p-4 flex flex-col h-[929px] w-[925px]  ml-4">
+        <div className="bg-white border border-gray-300 rounded-lg p-4 flex flex-col h-[929px] w-[925px] ml-4">
           <div className="flex flex-col flex-1 overflow-auto">
-            {messages.map((message, index) => (
-              <div
-                key={index}
-                className={`flex ${message.author === 'usuario 1' ? 'justify-end' : 'justify-start'}`}
-              >
-                <div
-                  className={`max-w-[70%] mb-5 p-3 rounded-lg ${message.author === 'usuario 1' ? 'bg-background-chat text-white' : ' text-black'
-                    }`}
-                >
-                  {message.text}
-                </div>
+            {chatsData?.map((chat, index) => (
+              <div key={index} className="flex flex-col text-white bg-zinc-900 p-2">
+                {chat.message_x_chats?.[0]?.message?.user?.full_name ? (
+                  <div onClick={() => ingresarAlChat(chat.id_chat)} className="cursor-pointer">
+                    <div>{chat.message_x_chats[0].message.user.full_name} :</div>
+                    <div>{chat.message_x_chats[0].message.message}</div>
+                  </div>
+                ) : (
+                  <div>No hay más mensajes disponibles</div>
+                )}
               </div>
             ))}
+
+            {messages?.map((message, index) => (
+              <li key={index} className="my-2 p-2 table text-sm rounded-md bg-black">
+                <span style={{ color: "red" }}>{message.message.user.user_name}</span>: {message.message.message}
+              </li>
+            ))}
           </div>
-          <div className="flex items-center mt-4 border-t border-gray-300 pt-2">
+
+          <form onSubmit={sendMessage} className="flex items-center mt-4 border-t border-gray-300 pt-2">
             <input
               type="text"
-              value={newMessage}
-              onChange={(e) => setNewMessage(e.target.value)}
+              name="message"
               className="flex-1 border border-gray-300 rounded-lg px-4 py-2 mr-2"
               placeholder="Escribe un mensaje..."
+              value={messageText}
+              onChange={(e) => setMessageText(e.target.value)} // Actualizar el estado con el texto del mensaje
+              autoFocus
             />
-            <button
-              onClick={handleSendMessage}
-              className="bg-background-enviar text-white px-4 py-2 rounded-lg"
-            >
+            <button type="submit" className="bg-background-enviar text-white px-4 py-2 rounded-lg">
               Enviar
             </button>
-          </div>
+
+          </form>
         </div>
       </div>
     </div>
