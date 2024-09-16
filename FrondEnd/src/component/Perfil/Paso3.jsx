@@ -6,11 +6,13 @@ import Button from '../Button/Button.jsx'
 import { useRouter } from 'next/navigation';
 
 
-export default function App({setstepForLogin}) {
+export default function App({setstepForLogin, formData, setFormData}) {
 
     const router = useRouter();
 
-
+    const handleGenderChange = (e) => {
+      setFormData({ ...formData, gender: e.target.value });
+    };
 
     return (
         <div>
@@ -27,25 +29,25 @@ export default function App({setstepForLogin}) {
                     <div className="flex flex-col space-y-7">
   <div className="flex flex-row items-center justify-between w-[460px]">
     <label className="flex items-center">
-      <input type="radio" name="gender" value="masculino" />
+      <input type="radio" name="gender" value="Male" onChange={handleGenderChange}/>
       <span className="ml-2">Masculino</span>
     </label>
   </div>
   <div className="flex flex-row items-center justify-between w-[460px]">
     <label className="flex items-center">
-      <input type="radio" name="gender" value="femenino" />
+      <input type="radio" name="gender" value="Female" onChange={handleGenderChange}/>
       <span className="ml-2">Femenino</span>
     </label>
   </div>
   <div className="flex flex-row items-center justify-between w-[460px]">
     <label className="flex items-center">
-      <input type="radio" name="gender" value="no-binario" />
+      <input type="radio" name="gender" value="Non-binary" onChange={handleGenderChange}/>
       <span className="ml-2">No binario</span>
     </label>
   </div>
   <div className="flex flex-row items-center justify-between w-[460px]">
     <label className="flex items-center">
-      <input type="radio" name="gender" value="prefiero-no-decirlo" />
+      <input type="radio" name="gender" value="Other" onChange={handleGenderChange}/>
       <span className="ml-2">Prefiero no decirlo</span>
     </label>
   </div>

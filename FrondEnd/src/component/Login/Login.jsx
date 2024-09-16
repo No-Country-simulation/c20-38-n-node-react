@@ -1,7 +1,6 @@
 "use client"; 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation"; 
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@nextui-org/react";
 import Button from '../Button/Button.jsx';
 
 export default function App() {
@@ -27,7 +26,8 @@ export default function App() {
 
       if (response.ok) {
         localStorage.setItem("token", data.token);
-        router.push('/Perfil');
+         router.push('/Perfil');
+        window.location.href='/Perfil';
       } else {
         setError(data.message || "Error al iniciar sesión");
       }

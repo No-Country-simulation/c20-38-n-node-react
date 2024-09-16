@@ -3,10 +3,16 @@
 import React from "react";
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@nextui-org/react";
 import Button from '../Button/Button.jsx'
-import { useRouter } from 'next/navigation';
+import { useUserData } from "../../context/UserDataContext.jsx";
 
 
-export default function App({setstepForLogin}) {
+export default function App({setstepForLogin,formData, setFormData}) {
+
+
+
+    const handleLevelChange = (e) => {
+        setFormData({ ...formData, level: e.target.value });
+      };
 
     return (
         <div>
@@ -23,25 +29,25 @@ export default function App({setstepForLogin}) {
                     <div className="flex flex-col space-y-7">
                         <div className="flex flex-row items-center justify-between w-[460px]">
                             <label className="flex items-center">
-                                <input type="radio" name="level" value="beginner" />
+                                <input type="radio" name="level" value="1" onChange={handleLevelChange} />
                                 <span className="ml-2">Soy principiante</span>
                             </label>
                         </div>
                         <div className="flex flex-row items-center justify-between w-[460px]">
                             <label className="flex items-center">
-                                <input type="radio" name="level" value="basic" />
+                                <input type="radio" name="level" value="2" onChange={handleLevelChange} />
                                 <span className="ml-2">Conozco lo básico, entiendo algo</span>
                             </label>
                         </div>
                         <div className="flex flex-row items-center justify-between w-[460px]">
                             <label className="flex items-center">
-                                <input type="radio" name="level" value="advanced" />
+                                <input type="radio" name="level" value="3" onChange={handleLevelChange}/>
                                 <span className="ml-2">Nivel avanzado, puedo conversar</span>
                             </label>
                         </div>
                         <div className="flex flex-row items-center justify-between w-[460px]">
                             <label className="flex items-center">
-                                <input type="radio" name="level" value="unknown" />
+                                <input type="radio" name="level" value="4" onChange={handleLevelChange} />
                                 <span className="ml-2">Aún no lo sé</span>
                             </label>
                         </div>
