@@ -51,7 +51,7 @@ e intuitiva para todos los usuarios.
 - Agustin Soleti Frontend  linkedin.com/in/aguusoleti / github.com/aguusoleti 
 - Kevin Salinas Backend  linkedin.com/in/kevin-salinas-valverde-20941a194 /  github.com/Code-Morth
 - Miguel Noboa  UX/UI  linkedin.com/in/miguelnoboa
-- Marisa del Carmen Palma QA  www.linkedin.com/in/marisa-del-carmen-palma
+- Marisa del Carmen Palma QA  linkedin.com/in/marisa-del-carmen-palma
 - Team Lider José Paternina Orozco linkedin.com/in/josepaterninaorozco
 ##### Tecnologías:
 ##### Enlaces del Proyecto:
